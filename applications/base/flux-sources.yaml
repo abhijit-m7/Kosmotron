@@ -24,3 +24,6 @@ spec:
     kind: GitRepository
     name: apps-repo
   targetNamespace: default
+  kubeConfig:
+    secretRef:
+      name: workload-1-kubeconfig
