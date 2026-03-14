@@ -10,7 +10,7 @@ spec:
       version: "4.11.0"
       sourceRef:
         kind: HelmRepository
-        name: nginx-stable
+        name: ingress-nginx
         namespace: flux-system
   values:
     controller:
