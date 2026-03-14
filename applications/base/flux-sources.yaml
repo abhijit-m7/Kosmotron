@@ -8,6 +8,8 @@ spec:
   url: https://github.com/abhijit-m7/Kosmotron
   ref:
     branch: main
+  secretRef:
+    name: github-token
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
