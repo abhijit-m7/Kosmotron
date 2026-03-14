@@ -1,0 +1,29 @@
+apiVersion: cluster.k0smotron.io/v1beta1
+kind: Cluster
+metadata:
+  name: workload-1
+  namespace: default
+spec:
+  replicas: 3
+  version: v1.31.0+k0smotron0
+  service:
+    type: ClusterIP
+  persistence:
+    type: emptyDir
+---
+apiVersion: cluster.k0smotron.io/v1beta1
+kind: ControlPlane
+metadata:
+  name: workload-1
+  namespace: default
+spec:
+  version: v1.31.0+k0smotron0
+  service:
+    type: ClusterIP
+  resources:
+    requests:
+      cpu: 500m
+      memory: 512Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi

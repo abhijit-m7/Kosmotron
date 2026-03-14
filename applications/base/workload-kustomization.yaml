@@ -1,0 +1,23 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: workload-1-apps
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: ./applications/releases
+  prune: true
+  targetNamespace: default
+  sourceRef:
+    kind: GitRepository
+    name: apps-repo
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
+  postBuild:
+    substitute:
+      CLUSTER_NAME: workload-1
+  kubeConfig:
+    secretRef:
+      name: workload-1-kubeconfig
